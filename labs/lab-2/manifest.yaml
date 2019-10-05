@@ -1,20 +1,20 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: lab-1
+  name: lab-2
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    lab: lab-1
+    lab: lab-2
   name: hello-world
-  namespace: lab-1
+  namespace: lab-2
 spec:
   replicas: 1
   selector:
     matchLabels:
-      lab: lab-1
+      lab: lab-2
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -23,10 +23,10 @@ spec:
   template:
     metadata:
       labels:
-        lab: lab-1
+        lab: lab-2
     spec:
       containers:
-        - image: docker.io/bryanl/k8st-hello-world
+        - image: docker.io/bryanl/k8st-hello-world:missing
           name: app
           ports:
             - containerPort: 8080
@@ -41,29 +41,29 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: hello-world
-  namespace: lab-1
+  namespace: lab-2
   labels:
-    lab: lab-1
+    lab: lab-2
 spec:
   rules:
     - host: app.local
       http:
         paths:
           - backend:
-              serviceName: hello-world
+              serviceName: hello-weorld
               servicePort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: hello-world
-  namespace: lab-1
+  namespace: lab-2
   labels:
-    lab: lab-1
+    labe: lab-2
 spec:
   ports:
     - port: 8080
       protocol: TCP
       targetPort: 8080
   selector:
-    lab: lab-1
+    labe: lab-2
