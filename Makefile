@@ -3,3 +3,9 @@ build-hello-world:
 
 push-hello-world:
 	@docker push bryanl/k8st-hello-world
+
+build-tempermental:
+	@docker build -t bryanl/k8st-tempermental -f cmd/tempermental/Dockerfile .
+
+push-tempermental:
+	@docker push bryanl/k8st-tempermental
