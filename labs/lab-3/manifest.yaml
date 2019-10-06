@@ -8,7 +8,7 @@ kind: Deployment
 metadata:
   labels:
     lab: lab-3
-  name: tempermental
+  name: temperamental
   namespace: lab-3
 spec:
   replicas: 2
@@ -26,7 +26,7 @@ spec:
         lab: lab-3
     spec:
       containers:
-        - image: docker.io/bryanl/k8st-tempermental
+        - image: docker.io/bryanl/k8st-temperamental:latest
           name: app
           ports:
             - containerPort: 8080
@@ -40,7 +40,7 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: tempermental
+  name: temperamental
   namespace: lab-3
   labels:
     lab: lab-3
@@ -50,13 +50,13 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: tempermental
+              serviceName: temperamental
               servicePort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: tempermental
+  name: temperamental
   namespace: lab-3
   labels:
     lab: lab-3

@@ -11,27 +11,27 @@ import (
 )
 
 func main() {
-	t := newTempermental()
+	t := newTemperamental()
 	http.Handle("/", t)
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		panic(err)
 	}
 }
 
-type tempermental struct {
+type temperamental struct {
 	rand *rand.Rand
 }
 
-func newTempermental() *tempermental {
+func newTemperamental() *temperamental {
 	source := rand.NewSource(time.Now().UnixNano())
-	return &tempermental{
+	return &temperamental{
 		rand: rand.New(source),
 	}
 }
 
-func (t tempermental) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+func (t temperamental) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	status := t.rand.Intn(100)
-	if status < 25 || !pacifierExists() {
+	if status < 25 && !pacifierExists() {
 		logrus.WithField("status", status).Errorf("I'm not happy")
 		http.Error(w, "I'm not happy", http.StatusInternalServerError)
 		return

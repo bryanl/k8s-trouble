@@ -99,3 +99,8 @@ To edit our deployment:
 
 `$ kubectl -n lab-1 edit deployment hello-world`
 
+### Clean up
+
+When you are finish exploring, clean up your cluster:
+
+`$ kubectl delete ns lab-1`

@@ -9,10 +9,9 @@ applications
 
 Kubernetes has a command `kubectl` to allow you to work with your 
 Kubernetes clusters. This tool contains many functions, but for 
-troubleshooting, you'll be most interested in these three:
+troubleshooting, you'll be most interested in these two:
 * get
 * describe
-* logs
 
 ## Setup
 
@@ -478,3 +477,9 @@ Now, let's try to view our website again:
 `$ curl http://app.local`
 
 It should work and your website is up and functioning again.
+
+### Clean up
+
+When you are finish exploring, clean up your cluster:
+
+`$ kubectl delete ns lab-2`
