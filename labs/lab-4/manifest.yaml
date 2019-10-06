@@ -1,0 +1,151 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lab-4
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    lab: lab-4
+    app.kubernetes.io/name: hello-world
+    app.kubernetes.io/instance: lab
+    app.kubernetes.io/version: v1
+  name: hello-world
+  namespace: lab-4
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      lab: lab-4
+      app.kubernetes.io/name: hello-world
+      app.kubernetes.io/instance: lab
+      app.kubernetes.io/version: v1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        lab: lab-4
+        app.kubernetes.io/name: hello-world
+        app.kubernetes.io/instance: lab
+        app.kubernetes.io/version: v1
+    spec:
+      containers:
+        - image: docker.io/bryanl/k8st-hello-world:missing
+          name: app
+          ports:
+            - containerPort: 8080
+              name: http
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hello-world
+  namespace: lab-4
+  labels:
+    lab: lab-4
+    app.kubernetes.io/name: hello-world
+    app.kubernetes.io/instance: lab
+    app.kubernetes.io/version: v1
+spec:
+  rules:
+    - host: app.local
+      http:
+        paths:
+          - backend:
+              serviceName: hello-weorld
+              servicePort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world
+  namespace: lab-4
+  labels:
+    labe: lab-4
+    app.kubernetes.io/name: hello-world
+    app.kubernetes.io/instance: lab
+    app.kubernetes.io/version: v1
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    labe: lab-4
+    app.kubernetes.io/name: hello-world
+    app.kubernetes.io/instance: lab
+    app.kubernetes.io/version: v1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    lab: lab-4
+    app.kubernetes.io/name: temperamental
+    app.kubernetes.io/instance: lab
+    app.kubernetes.io/version: v1
+  name: temperamental
+  namespace: lab-4
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      lab: lab-4
+      app.kubernetes.io/name: temperamental
+      app.kubernetes.io/instance: lab
+      app.kubernetes.io/version: v1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        lab: lab-4
+        app.kubernetes.io/name: temperamental
+        app.kubernetes.io/instance: lab
+        app.kubernetes.io/version: v1
+    spec:
+      containers:
+        - image: docker.io/bryanl/k8st-temperamental:latest
+          name: app
+          ports:
+            - containerPort: 8080
+              name: http
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: temperamental
+  namespace: lab-4
+  labels:
+    lab: lab-4
+    app.kubernetes.io/name: temperamental
+    app.kubernetes.io/instance: lab
+    app.kubernetes.io/version: v1
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    lab: lab-4
+    app.kubernetes.io/name: temperamental
+    app.kubernetes.io/instance: lab
+    app.kubernetes.io/version: v1
