@@ -20,7 +20,7 @@ is actually in the code itself.
 
 ### 2. Install manifest for application
 
-`$ kubectl apply -f k apply -f https://raw.githubusercontent.com/bryanl/k8s-trouble/master/labs/lab-3/manifest.yaml`
+`$ kubectl apply -f https://raw.githubusercontent.com/bryanl/k8s-trouble/master/labs/lab-3/manifest.yaml`
 
 ## Lab
 

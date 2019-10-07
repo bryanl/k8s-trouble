@@ -52,7 +52,7 @@ An ingress allows traffic external to your cluster to reach a service.
 
 ### 2. Install manifest for application
 
-`$ kubectl apply -f k apply -f https://raw.githubusercontent.com/bryanl/k8s-trouble/master/labs/lab-1/manifest.yaml`
+`$ kubectl apply -f https://raw.githubusercontent.com/bryanl/k8s-trouble/master/labs/lab-1/manifest.yaml`
 
 
 ## Lab

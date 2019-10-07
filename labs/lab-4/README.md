@@ -21,7 +21,7 @@ visually in your web browser.
 
 ### 2. Install manifest for application
 
-`$ kubectl apply -f k apply -f https://raw.githubusercontent.com/bryanl/k8s-trouble/master/labs/lab-4/manifest.yaml`
+`$ kubectl apply -f https://raw.githubusercontent.com/bryanl/k8s-trouble/master/labs/lab-4/manifest.yaml`
 
 ### 3. Launch Octant
 
@@ -32,11 +32,16 @@ On your computer (not in the k8s-lab shell), launch Octant:
 ## Lab
 
 In this lab, your application is broken. You will troubleshoot and 
-fix the issues with Octant and `kubectl`. Refer back to `lab-2` for 
-commands if you don't remember.
+fix the issues with Octant and `kubectl`. 
+
+## Notes
+
+### Editing objects
+
+`kubectl -n lab-4 edit kind/name`
 
 ### Clean up
 
 When you are finish exploring, clean up your cluster:
 
-`$ kubectl delete ns lab-3`
+`$ kubectl delete ns lab-4`

@@ -21,7 +21,7 @@ troubleshooting, you'll be most interested in these two:
 
 ### 2. Install manifest for application
 
-`$ kubectl apply -f k apply -f https://raw.githubusercontent.com/bryanl/k8s-trouble/master/labs/lab-2/manifest.yaml`
+`$ kubectl apply -f https://raw.githubusercontent.com/bryanl/k8s-trouble/master/labs/lab-2/manifest.yaml`
 
 
 ## Lab

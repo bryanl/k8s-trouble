@@ -43,7 +43,6 @@ command sets up a metrics server on your cluster.
 `k8s-lab` creates local Kubernetes environment on your computer. It 
 also contains utilities for interacting with Kubernetes.
 
-
 ## Removing k8s-lab
 
 Run `$ k8s-lab delete` to remove the cluster from your computer.
