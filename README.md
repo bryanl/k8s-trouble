@@ -4,45 +4,43 @@
 
 ### 0. Prerequisites
 
-This lab requires Docker >= 1.19. 
+This lab requires a working Kubernetes installation. The lab assumes you are using minikube.
 
-### 1. Download k8s-lab
+Getting started directions live at https://minikube.sigs.k8s.io/docs/start/
 
-Download k8s-lab from https://github.com/bryanl/k8s-lab/releases/tag/v0.1.0.
-Ensure you get the version that matches your computer's operating system.
+Update your current Kubernetes context to be minikube
 
-### 2. Extract the archive into a directory
+```sh
+$ kubectl config use-context minikube 
+```
 
-It doesn't matter where you extract the archive.
-
-### 3. Initialize your lab environment
-
-`$ k8s-lab init`
-
-### 4. Start a shell using k8s-lab
-
-`$ k8s-lab shell`
-
-### 5. Verify installation
+### 1. Verify installation
 
 Run `kubectl get nodes` from inside your lab shell. If 
 two nodes are returned, your lab is configured correctly
 
-### 6. Setup an `ingress`
+### 2. Setup an `ingress`
 
-In your shell, run `./lab_scripts/init-ingress.sh`. This 
-command allows you to send traffic to your cluster.
+```sh
+$ minikube addons enable ingress
+```
 
-### 7. Setup metrics
+### 3. Setup metrics
 
-In your shell, run `./lab_scripts/init-metrics.sh`. This 
+In your shell, run `./lab-scripts/init-metrics.sh`. This 
 command sets up a metrics server on your cluster.
 
-## k8s-lab
+### 4. Set up hosts
 
-`k8s-lab` creates local Kubernetes environment on your computer. It 
-also contains utilities for interacting with Kubernetes.
+To make accessing the cluster easier, add `app.local` to your hosts file.
 
-## Removing k8s-lab
+* windows: C:\Windows\System32\Drivers\etc\hosts
+* others: /etc/hosts
 
-Run `$ k8s-lab delete` to remove the cluster from your computer.
+You can get the IP with `minikube ip`
+
+eg
+
+```sh
+172.16.55.222 app.local
+```

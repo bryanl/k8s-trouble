@@ -15,19 +15,17 @@ visually in your web browser.
 
 ## Setup
 
-### 1. Launch shell
-
-`$ k8s-lab shell`
-
-### 2. Install manifest for application
+### 1. Install manifest for application
 
 `$ kubectl apply -f https://raw.githubusercontent.com/bryanl/k8s-trouble/master/labs/lab-4/manifest.yaml`
 
-### 3. Launch Octant
+### 1. Launch Octant
 
-On your computer (not in the k8s-lab shell), launch Octant:
+> Octant must be installed to complete this lab. The installation directions live at https://github.com/vmware-tanzu/octant#installation.
 
-`$ k8s-lab octant`
+On your computer, launch Octant:
+
+`$ octant`
 
 ## Lab
 

@@ -15,11 +15,7 @@ troubleshooting, you'll be most interested in these two:
 
 ## Setup
 
-### 1. Launch k8s-lab shell
-
-`$ k8s-lab shell`
-
-### 2. Install manifest for application
+### 1. Install manifest for application
 
 `$ kubectl apply -f https://raw.githubusercontent.com/bryanl/k8s-trouble/master/labs/lab-2/manifest.yaml`
 
@@ -31,7 +27,7 @@ fix the issues.
 
 ### Verify your application deployed
 
-From the k8s-lab shell, run `curl http://app.local`. This time,
+Run `curl http://app.local` or visit it in your web browser. At this time,
 the application is broken? But where?  
 
 ### Review the objects that were created

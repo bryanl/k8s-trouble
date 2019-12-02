@@ -14,11 +14,7 @@ is actually in the code itself.
 
 ## Setup
 
-### 1. Launch k8s-lab shell
-
-`$ k8s-lab shell`
-
-### 2. Install manifest for application
+### 1. Install manifest for application
 
 `$ kubectl apply -f https://raw.githubusercontent.com/bryanl/k8s-trouble/master/labs/lab-3/manifest.yaml`
 
@@ -29,7 +25,7 @@ troubleshoot and attempt to fix the issues.
 
 ### Verify your application deployed
 
-From the k8s-lab shell, run `curl http://app.local`. You should 
+Run `curl http://app.local` or visit it in your browser. You should 
 receive a response from the application. Your application will be happy or not. Try
 the `curl` command a few times to see the different outputs.
 
@@ -125,11 +121,7 @@ First, scale your deployment up to multiple pods
 
 `$ kubectl -n lab-3 scale --replicas 3 deployment/temperamental`
 
-In another terminal, launch another k8s-lab shell. 
-
-`$ k8s-lab shell`
-
-In the second shell, launch stern:
+In the another shell, launch stern:
 
 `$ stern -n lab-3 temperamental`
 

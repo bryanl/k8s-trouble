@@ -46,11 +46,7 @@ An ingress allows traffic external to your cluster to reach a service.
 
 ## Setup
 
-### 1. Launch k8s-lab shell
-
-`$ k8s-lab shell`
-
-### 2. Install manifest for application
+### 1. Install manifest for application
 
 `$ kubectl apply -f https://raw.githubusercontent.com/bryanl/k8s-trouble/master/labs/lab-1/manifest.yaml`
 
@@ -59,7 +55,7 @@ An ingress allows traffic external to your cluster to reach a service.
 
 ### Verify your application deployed
 
-From the k8s-lab shell, run `curl http://app.local`. You should 
+Run `curl http://app.local` or visit it in your web browser. You should 
 receive a response from the application.
 
 ### Review the objects that were created
