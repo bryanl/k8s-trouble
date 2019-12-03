@@ -1,5 +1,13 @@
 # Kubernetes Troubleshooting Workshop
 
+## Introduction
+
+This workshop contains multiple labs that are designed to introduce a user to 
+troubleshooting techniques that may be useful for developers who interact with
+Kubernetes.
+
+No previous Kubernetes experience is assumed.
+
 ## Setup
 
 ### 0. Prerequisites

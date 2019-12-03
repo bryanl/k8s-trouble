@@ -1,4 +1,4 @@
-# Lab 3: exploring your cluster visually
+# Lab 4: exploring your cluster visually
 
 ## Goal
 
